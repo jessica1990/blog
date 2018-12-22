@@ -26,4 +26,97 @@ categories: 前端 工具
 
 下面就通过一个例子来介绍 **cordova + vue生成app** 从无到有！
 
+#### 1. 首先创建cordova工程
+```
+npm install -g cordova
+cordova create helloApp
+```
+![cordova工程目录](../img/helloCordova.png)
+#### 2. 创建vue工程，有了脚手架之后很简单、网上也有很多相关文章，不细说直接命令行建工程，如下：
+```
+npm install webpack webpack-cli -g
+npm install vue-cli -g
+vue init webpack hellovue
+```
+![vue工程目录](../img/helloVue.png)
+#### 3. 修改vue工程部分配置，如下所示：
+* 在index.html的head中添加meta
+
+```
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+```
+添加[Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)主要是为了防止跨域脚本攻击，可不加，但建议加上。
+加上之后如果有其他域名的资源引入需要在这里声明，否则无法引入。
+
+然后引入cordova.js，引入后body变成下面这样：
+
+```
+<body>
+    <div id="app"></div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <!-- built files will be auto injected -->
+</body>
+```
+
+* 修改src/main.js，修改后如下：
+
+```
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+
+Vue.config.productionTip = false
+
+/* eslint-disable no-new */
+document.addEventListener('deviceready', function() {
+  	new Vue({
+		el: '#app',
+		router,
+		store,
+		template: '<App/>',
+		components: { App }
+  	})
+}, false);
+```
+这里的 deviceready 主要是为了能在设备准备好后创建vue实例，以便可以正常使用cordova提供的API。
+
+* 然后修改config/index.js中的build对象，修改前：
+
+```
+// Template for index.html
+index: path.resolve(__dirname, '../dist/index.html'),
+
+// Paths
+assetsRoot: path.resolve(__dirname, '../dist'),
+```
+修改后：
+
+```
+// Template for index.html
+index: path.resolve(__dirname, '../www/index.html'),
+
+// Paths
+assetsRoot: path.resolve(__dirname, '../www'),
+```
+即 将dist改为www，这样改是为了后面将两个工程合并起来好管理。
+
+#### 4. 将两个工程活生生合并到一起，合并后目录如下：
+![合并后工程目录](../img/helloApp.png)
+
+合并时会遇到同名冲突，vue项目的www包可以直接盖掉cordova工程的www包，而两个工程的package.json则要merge一下。
+
+#### 5. 打包app
+在合并后的cordova工程目录下执行以下命令，最初版的app就诞生啦！
+
+```
+cordova platform add ios
+cordova build ios
+```
+在platforms/ios目录下双击.xcworkspace文件用xcode打开，启用模拟器或用数据线连接手机点击运行按钮app就启动了。
+
+### 如何持续开发
+
+### 如何添加热更新
 
