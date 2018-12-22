@@ -5,8 +5,6 @@ tags: cordova vue 混合开发
 categories: 前端 工具
 ---
 
-# cordova + vue 混合开发
-
 ### cordova 是什么？
 可参考[官网](https://cordova.apache.org)
 >Apache Cordova is an open-source mobile development framework. It allows you to use standard web technologies - HTML5, CSS3, and JavaScript for cross-platform development. Applications execute within wrappers targeted to each platform, and rely on standards-compliant API bindings to access each device's capabilities such as sensors, data, network status, etc.
@@ -117,6 +115,7 @@ cordova build ios
 在platforms/ios目录下双击.xcworkspace文件用xcode打开，启用模拟器或用数据线连接手机点击运行按钮app就启动了。
 
 ### 如何持续开发
-
+待续···
 ### 如何添加热更新
+待续···
 
