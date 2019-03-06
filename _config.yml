@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
-keywords:
+title: 前端之旅-珈蓝小羊人
+subtitle: 记录我和你的前端之旅
+description: 描述 记录我和你的前端之旅 记录我和你的前端之旅 记录我和你的前端之旅
+keywords: 关键词
 author: John Doe
-language:
-timezone:
+language: zh-CN
+timezone: 
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://jessica1990.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:

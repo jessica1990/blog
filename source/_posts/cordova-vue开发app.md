@@ -29,14 +29,14 @@ categories: 前端 工具
 npm install -g cordova
 cordova create helloApp
 ```
-![cordova工程目录](https://github.com/jessica1990/blog/blob/master/source/img/helloCordova.png?raw=true)
+![cordova工程目录](/img/helloCordova.png)
 #### 2. 创建vue工程，有了脚手架之后很简单、网上也有很多相关文章，不细说直接命令行建工程，如下：
 ```
 npm install webpack webpack-cli -g
 npm install vue-cli -g
 vue init webpack hellovue
 ```
-![vue工程目录](https://github.com/jessica1990/blog/blob/master/source/img/helloVue.png?raw=true)
+![vue工程目录](/img/helloVue.png)
 #### 3. 修改vue工程部分配置，如下所示：
 * 在index.html的head中添加meta
 
@@ -101,7 +101,7 @@ assetsRoot: path.resolve(__dirname, '../www'),
 即 将dist改为www，这样改是为了后面将两个工程合并起来好管理。
 
 #### 4. 将两个工程活生生合并到一起，合并后目录如下：
-![合并后工程目录](https://github.com/jessica1990/blog/blob/master/source/img/helloApp.png?raw=true)
+![合并后工程目录](/img/helloApp.png)
 
 合并时会遇到同名冲突，vue项目的www包可以直接盖掉cordova工程的www包，而两个工程的package.json则要merge一下。
 
