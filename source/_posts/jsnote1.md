@@ -1,6 +1,6 @@
 ---
-title: 「js高程」笔记（1）
-date: 2019-03-06 19:32:39
+title: javascript学习笔记（一）
+date: 2018-12-16 19:32:39
 tags: javascript DOM级别
 categories: javascript 
 ---
