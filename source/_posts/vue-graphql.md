@@ -50,6 +50,8 @@ new Vue({
 #### apollo-client
 > Apollo Client is the best way to use GraphQL to build client applications. The client is designed to help you quickly build a UI that fetches data with GraphQL, and can be used with any JavaScript front-end.
 
+**ApolloClient 作为缓存的查询存储, 以及分发查询结果**
+
 #### apollo-link-http
 > Get GraphQL results over a network using HTTP fetch.
 
@@ -59,9 +61,13 @@ new Vue({
 #### vue-apollo
 > This library integrates apollo in your Vue components with declarative queries.
 
+**用于创建ApolloProvider，ApolloProvider 用于关联ApolloClient到Vue组件**
+
 
 ### 2. gql语句
 定义**query**、**mutation**、**subscribtion**等语句以供请求使用
+
+**graphql-tag**库用于构造查询文档
 
 ```
 import gql from 'graphql-tag'
