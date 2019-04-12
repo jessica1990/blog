@@ -117,7 +117,7 @@ branding:
 
 ## 设置banner背景图片
 banner:
-    img: /img/banner/banner.jpg
+    img: /img/banner/banner.jpeg
 
 ## 首页列表底部面板
 homePanel: true
