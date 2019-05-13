@@ -32,7 +32,7 @@ categories: 前端
 
 #### javascript/css相关--代码层面
 * link css放到head中，因为CSSOM和DOM都构建完成才能合力构建渲染树，将css放到head就是为了尽早构建CSSOM，防止阻塞渲染
-* 首屏快速显示可使用critical css，即 将首屏用到的css单拎为```<style>```标签放到```<head>```，其他css后置并设置**rel="preload"**属性，**rel="preload"**通知浏览器开始获取非关键CSS以供之后用。其关键在于，**preload**不阻塞渲染，无论资源是否加载完成，浏览器都会接着绘制页面，可以使用Node.js的模块[Critical](https://github.com/addyosmani/critical)来实现
+* 首屏快速显示可使用critical css，即 将首屏用到的css单拎为**style**标签放到**head**，其他css后置并设置**rel="preload"**属性，**rel="preload"**通知浏览器开始获取非关键CSS以供之后用。其关键在于，**preload**不阻塞渲染，无论资源是否加载完成，浏览器都会接着绘制页面，可以使用Node.js的模块[Critical](https://github.com/addyosmani/critical)来实现
 * javascript会阻塞浏览器，因此要放到html尾部，或者按需使用defer（异步加载，整个文档解析完、DOMContentLoaded事件即将被触发时执行）或async（异步加载，该文件加载结束后立即执行）。实际上并不是javascript阻塞了浏览器，而是因为js引擎是独立于渲染引擎存在的，遇到js时，浏览器会将控制权交给js引擎，渲染引擎没权了自然无法继续工作
 * 异步模块加载，如将vue-router中的component从方案一改为方案二（利用function形式，在用到的时候返回相关组件）
 
