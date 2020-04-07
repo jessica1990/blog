@@ -9,13 +9,13 @@ categories: javascript
 
 #### 变量提升
 
-**先提升变量，然后函数提升，然后赋值**
+**先提升变量，然后函数提升，然后赋值**，函数的优先级会高于变量。
 
 ```
 (function(){
   console.log(a);
-  var a = 5;
   function a(){}
+  var a = 5;
   console.log(a);
   function b(){}
   var b;
